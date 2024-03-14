@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+    <style>
+        *{
+            border: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        #box{
+            display: flex;
+            justify-content: center;
+            padding: 70px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="./lampadas/lampada-off.jpg" id="lamp" type="button" onclick="mudar_lampada()">
+    </div>
+
+    <script>
+        function mudar_lampada(){
+            let lampada = document.getElementById("lamp")
+            if (lampada.getAttribute("src") === "./lampadas/lampada-off.jpg"){
+                lampada.src = "./lampadas/lampada-on.jpg";
+            }
+            else {
+                lampada.src = "./lampadas/lampada-off.jpg";
+            }
+        }
+    </script>
+</body>
+</html>
