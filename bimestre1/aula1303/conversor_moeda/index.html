@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de moedas</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+
+        #box1{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px 0px;
+            height: 450px;
+            width: 350px;
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: rgb(195, 237, 255);
+        
+        }
+
+        #origem ,#destino, #qnt, #conv{
+            width: 300px;
+            height: 40px;
+            background-color: rgb(228, 242, 255);
+            border-radius: 10px;
+            border-style: none;
+            padding-left: 5px;
+            
+        }
+
+        #resultado{
+            align-self: center;
+            width: 100px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        #conv{
+            cursor: pointer;
+        }
+
+        label{
+            align-self: flex-start;
+            padding-left: 25px;
+            padding-bottom: 10px;
+          
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div id="container">
+        <h3>Conversor de moeda</h3>
+        <div id="box1">
+            <label for="moeda_origem">Moeda de origem:
+                <select id="origem" name="mOrigem">
+                    <option>Real brasileiro</option>
+                </select>
+            </label>
+
+            <label for="moeda_destino">Moeda de destino:
+                <select id="destino" name="mDestino">
+                    <option value="1">Dólar americano</option>
+                    <option value="2">Euro</option>
+                </select>
+            </label>
+
+            <label for="qnt">Quantidade: 
+                <input type="number" id="qnt" placeholder="Digite a sua quantidade de dinheiro">
+            </label>
+
+            <button id="conv" onclick="converter()">Converter</button>
+
+            <p id="resultado"></p>
+        </div>
+
+    </div>
+
+    <script>
+        function converter(){
+            let quantidade = parseFloat(document.getElementById("qnt").value);
+            let destino = document.getElementById("destino").value;
+            let result = document.getElementById("resultado");
+
+            if (destino === "1"){
+                let conv_dolar = quantidade * 0.2;
+                result.innerHTML = (conv_dolar.toFixed(2) + " Dólares");
+                
+            }else if (destino === "2"){
+                let conv_euro = quantidade * 0.18;
+                result.innerHTML = (conv_euro.toFixed(2) + " Euros");
+            }
+
+        }
+    </script>
+</body>
+</html>
